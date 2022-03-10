@@ -80,17 +80,55 @@ int main(int argc, char* argv[]) {
         alphabet.push_back(currState);
     }
     
+    // declare a 2d vector that serves as the transition table
     vector<vector<string>> transitionMatrix;
+
+    // resize it so that it has as many rows as there are states
+    transitionMatrix.resize(allStates.size());
+
+    // resize each row so that it has as many columns as there are items in the input alphabet
+    for (int i = 0; i < transitionMatrix.size(); ++i) {
+        transitionMatrix[i].resize(alphabet.size());
+        transitionMatrix[i][0] = allStates.at(i);
+        transitionMatrix[0][i] = alphabet.at(i);
+    }
+
     transitionFd.open("transitionTable.txt");
-    int i, j = 0;
+    int i = 1;
+    int j = 1;
+
+    // will store the first comma-separated string on each line as we read it
+    currState = startState;
+    // will store the first comma-separated string on the line from which we're moving on
+    string prevState = currState;
     while (!transitionFd.eof()) {
+        getline(transitionFd,currState,',');
+        if (prevState == currState) {
+            // do nothing
+        } else {
+            // if the state read on the current line differs from that of the previous
+            // increment the row counter
+            i++;
+        }
+
+        // read the remaining comma-separated strings and store them as transitions for the state
+        while (j < alphabet.size()) {
+            getline(transitionFd,transitionMatrix[i][j],',');
+            j++;
+        }
+
+        // store what we just read 
+        prevState = transitionMatrix[i][0];
+        j = 1;
+    }
+    /*
         while(j < alphabet.size()) {
             getline(transitionFd,transitionMatrix[i][j],',');
             j++;
         }
         i++;
         j = 0;
-    }
+    }*/
     
     vector<string> finalStates;
     finalFd.open("finalStates.txt");
