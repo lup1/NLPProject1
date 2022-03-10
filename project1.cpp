@@ -129,6 +129,14 @@ int main(int argc, char* argv[]) {
         i++;
         j = 0;
     }*/
+
+    // print out the matrix
+    for (int i = 0; i < transitionMatrix.size(); ++i) {
+        for (int j = 0; j < transitionMatrix[i].size(); ++j) {
+            cout << transitionMatrix[i][j] + " ";
+        }
+        cout << endl;
+    }
     
     vector<string> finalStates;
     finalFd.open("finalStates.txt");
@@ -139,44 +147,44 @@ int main(int argc, char* argv[]) {
     
     //d recognize function
 
-    int index = input[0];
-    currState = startState;
+    // int index = input[0];
+    // currState = startState;
     
 
-    for(int i = 0; i < input.length(); i++)
-    {
-        //if input matches the alphabet then the currState is an accepted state
-        //if((string)input[i] == transitionMatrix[i][1])/*alphabet*/
-        if(strcmp(input[i], transitionMatrix[i][1]))
-        {
-            currState = "accept";
-        }
-        if(i = input.length() - 1)
-        {
-            // assuming finalStates.txt can have multiple accepting states
+    // for(int i = 0; i < input.length(); i++)
+    // {
+    //     //if input matches the alphabet then the currState is an accepted state
+    //     //if((string)input[i] == transitionMatrix[i][1])/*alphabet*/
+    //     if(strcmp(input[i], transitionMatrix[i][1]))
+    //     {
+    //         currState = "accept";
+    //     }
+    //     if(i = input.length() - 1)
+    //     {
+    //         // assuming finalStates.txt can have multiple accepting states
 
-            /*
-            for (x : finalStates) {
-                if (x == currState) {
-                    cout << "Accept" << endl;
-                }
-            }
-            */
+    //         /*
+    //         for (x : finalStates) {
+    //             if (x == currState) {
+    //                 cout << "Accept" << endl;
+    //             }
+    //         }
+    //         */
 
-            if(currState == finalStates.at(0)) {
-                cout << "Accept" << endl;
-                break;
-            }
-            else {
-                cout << "Reject" << endl;
-                break;
-            }
-        }
-        else if(transitionMatrix[currState, input[i]].size() == 0)
-        {
-            cout << "Reject" << endl;
-        }
-    }
+    //         if(currState == finalStates.at(0)) {
+    //             cout << "Accept" << endl;
+    //             break;
+    //         }
+    //         else {
+    //             cout << "Reject" << endl;
+    //             break;
+    //         }
+    //     }
+    //     else if(transitionMatrix[currState, input[i]].size() == 0)
+    //     {
+    //         cout << "Reject" << endl;
+    //     }
+    // }
     
     
 
@@ -188,14 +196,14 @@ int main(int argc, char* argv[]) {
     transitionFd.close();
     finalFd.close();
     
-    /*
-    for (int i = 0; i < input.length(); ++i) {
-        if (string[i])
-    }
-    */
+    // /*
+    // for (int i = 0; i < input.length(); ++i) {
+    //     if (string[i])
+    // }
+    // */
 
-    string states[0 /*input length when we figure out states*/];
-    string transitionTable[sizeof(alphabet) * sizeof(states)];
+    // string states[0 /*input length when we figure out states*/];
+    // string transitionTable[sizeof(alphabet) * sizeof(states)];
 
     // newFile.open("alphabet.txt",ios::in);
     // if (newFile.is_open()){
