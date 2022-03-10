@@ -85,13 +85,11 @@ int main(int argc, char* argv[]) {
     int i, j = 0;
     while (!transitionFd.eof()) {
         while(j < alphabet.size()) {
-            
+            getline(transitionFd,transitionMatrix[i][j],',');
+            j++;
         }
-        /*if (j == 2) {
-            i++;
-        }
-        getline(transitionFd,transitionMatrix[i][j],',');
-        j++; */
+        i++;
+        j = 0;
     }
     
     vector<string> finalStates;
@@ -117,6 +115,16 @@ int main(int argc, char* argv[]) {
         }
         if(i = input.length() - 1)
         {
+            // assuming finalStates.txt can have multiple accepting states
+
+            /*
+            for (x : finalStates) {
+                if (x == currState) {
+                    cout << "Accept" << endl;
+                }
+            }
+            */
+
             if(currState == finalStates.at(0)) {
                 cout << "Accept" << endl;
                 break;
