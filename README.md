@@ -1,4 +1,5 @@
 # NLPProject1
+## Casey Lishko, Chris Mckeever, Geethika Manojkumar, Poean Lu
 
 "alphabet.txt" gives the vocabulary of the finite state machine. Next, "startState.txt" gives the starting state of the finite state machine, and "states.txt" gives all of the states that the finite state machine could go through. Finally, "finalState.txt" gives the accepting state of the finite state machine. "transitionTable.txt" gives the inputs that would cause the finite state machine to change states.
 
