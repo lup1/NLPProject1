@@ -1,0 +1,9 @@
+q0,b,q1
+q0,a,NULL
+q0,!,NULL
+q1,b,NULL
+q1,a,q2
+q1,!,NULL
+q2,a,q2
+q2,!,q3
+
